@@ -1,13 +1,13 @@
-
 import React, { useState } from 'react';
+// Fix: Remove .ts and .tsx extensions from import paths to resolve module not found errors.
 import { Screen } from './types';
 import WelcomeScreen from './screens/WelcomeScreen';
 import CustomerLoginScreen from './screens/CustomerLoginScreen';
 import DriverLoginScreen from './screens/DriverLoginScreen';
 import AdminLoginScreen from './screens/AdminLoginScreen';
 import CustomerRegistrationScreen from './screens/CustomerRegistrationScreen';
-import PasswordRecoveryScreen from './screens/PasswordRecoveryScreen';
 import OtpVerificationScreen from './screens/OtpVerificationScreen';
+import PasswordRecoveryScreen from './screens/PasswordRecoveryScreen';
 import ServiceSelectionDashboard from './screens/ServiceSelectionDashboard';
 import TripDetailsInputScreen from './screens/TripDetailsInputScreen';
 import SchedulePlanningScreen from './screens/SchedulePlanningScreen';
@@ -20,33 +20,23 @@ import SecurePaymentProcessingScreen from './screens/SecurePaymentProcessingScre
 import ServiceRatingScreen from './screens/ServiceRatingScreen';
 import ServiceHistoryScreen from './screens/ServiceHistoryScreen';
 import TripHistoryDetailScreen from './screens/TripHistoryDetailScreen';
-
+import AccountProfileScreen from './screens/AccountProfileScreen';
+import SavedPassengersScreen from './screens/SavedPassengersScreen';
+// Fix: Remove .ts and .tsx extensions from import paths to resolve module not found errors.
+import EmergencyContactsScreen from './screens/EmergencyContactsScreen';
 
 const App: React.FC = () => {
     const [currentScreen, setCurrentScreen] = useState<Screen>('welcome');
     const [selectedShuttleId, setSelectedShuttleId] = useState<number | null>(null);
-    const [selectedHistoryId, setSelectedHistoryId] = useState<number | null>(null);
-
+    const [selectedTripId, setSelectedTripId] = useState<number | null>(null);
 
     const handleNavigate = (screen: Screen, id?: number) => {
         setCurrentScreen(screen);
-        if (screen === 'shuttleDriverProfile' || 
-            screen === 'bookingConfirmation' || 
-            screen === 'realTimeTripTracking' || 
-            screen === 'paymentSelection' || 
-            screen === 'securePaymentProcessing' || 
-            screen === 'serviceRating') {
-            if (id !== undefined) setSelectedShuttleId(id);
-        } else if (screen === 'tripHistoryDetail') {
-            if (id !== undefined) setSelectedHistoryId(id);
-        } else {
-            // Reset IDs when navigating to screens that don't need them
-            if (screen !== 'compatibleShuttles') {
-                setSelectedShuttleId(null);
-            }
-            if(screen !== 'serviceHistory') {
-                setSelectedHistoryId(null);
-            }
+        if (screen === 'shuttleDriverProfile' || screen === 'bookingConfirmation' || screen === 'realTimeTripTracking' || screen === 'paymentSelection' || screen === 'securePaymentProcessing' || screen === 'serviceRating') {
+            setSelectedShuttleId(id ?? null);
+        }
+        if (screen === 'tripHistoryDetail') {
+            setSelectedTripId(id ?? null);
         }
     };
 
@@ -62,20 +52,20 @@ const App: React.FC = () => {
                 return <AdminLoginScreen onNavigate={handleNavigate} />;
             case 'customerRegistration':
                 return <CustomerRegistrationScreen onNavigate={handleNavigate} />;
-            case 'passwordRecovery':
-                return <PasswordRecoveryScreen onNavigate={handleNavigate} />;
             case 'otpVerification':
                 return <OtpVerificationScreen onNavigate={handleNavigate} />;
+            case 'passwordRecovery':
+                return <PasswordRecoveryScreen onNavigate={handleNavigate} />;
             case 'serviceSelectionDashboard':
-                return <ServiceSelectionDashboard onNavigate={handleNavigate} />;
+                 return <ServiceSelectionDashboard onNavigate={handleNavigate} />;
             case 'tripDetailsInput':
-                return <TripDetailsInputScreen onNavigate={handleNavigate} />;
+                 return <TripDetailsInputScreen onNavigate={handleNavigate} />;
             case 'schedulePlanning':
-                return <SchedulePlanningScreen onNavigate={handleNavigate} />;
+                 return <SchedulePlanningScreen onNavigate={handleNavigate} />;
             case 'compatibleShuttles':
-                return <CompatibleShuttlesScreen onNavigate={handleNavigate} />;
+                 return <CompatibleShuttlesScreen onNavigate={handleNavigate} />;
             case 'shuttleDriverProfile':
-                return <ShuttleDriverProfileScreen onNavigate={handleNavigate} shuttleId={selectedShuttleId} />;
+                 return <ShuttleDriverProfileScreen onNavigate={handleNavigate} shuttleId={selectedShuttleId} />;
             case 'bookingConfirmation':
                 return <BookingConfirmationScreen onNavigate={handleNavigate} shuttleId={selectedShuttleId} />;
             case 'realTimeTripTracking':
@@ -89,17 +79,19 @@ const App: React.FC = () => {
             case 'serviceHistory':
                 return <ServiceHistoryScreen onNavigate={handleNavigate} />;
             case 'tripHistoryDetail':
-                return <TripHistoryDetailScreen onNavigate={handleNavigate} tripId={selectedHistoryId} />;
+                return <TripHistoryDetailScreen onNavigate={handleNavigate} tripId={selectedTripId} />;
+            case 'accountProfile':
+                return <AccountProfileScreen onNavigate={handleNavigate} />;
+            case 'savedPassengers':
+                return <SavedPassengersScreen onNavigate={handleNavigate} />;
+            case 'emergencyContacts':
+                return <EmergencyContactsScreen onNavigate={handleNavigate} />;
             default:
                 return <WelcomeScreen onNavigate={handleNavigate} />;
         }
     };
 
-    return (
-        <div>
-            {renderScreen()}
-        </div>
-    );
+    return <>{renderScreen()}</>;
 };
 
 export default App;

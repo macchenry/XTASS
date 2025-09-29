@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+// Fix: Remove .ts and .tsx extensions from import paths to resolve module not found errors.
 import { Screen } from '../types';
 import { XtassLogo } from '../components/XtassLogo';
+// Fix: Remove .ts and .tsx extensions from import paths to resolve module not found errors.
 import { ArrowLeftIcon, CalendarIcon, ClockIcon, UsersIcon, BriefcaseIcon, MapPinIcon, ArrowRightIcon, CheckCircleIcon } from '../components/Icons';
 
 interface SchedulePlanningScreenProps {

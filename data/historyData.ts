@@ -1,4 +1,5 @@
 
+// Fix: Remove .ts extension from import path for TripHistory type.
 import { TripHistory } from '../types';
 
 export const historyData: TripHistory[] = [

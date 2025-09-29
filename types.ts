@@ -1,18 +1,12 @@
 
-export enum Role {
-    Customer = 'Customer',
-    Driver = 'Driver',
-    Admin = 'Admin',
-}
-
 export type Screen =
     | 'welcome'
     | 'customerLogin'
     | 'driverLogin'
     | 'adminLogin'
     | 'customerRegistration'
-    | 'passwordRecovery'
     | 'otpVerification'
+    | 'passwordRecovery'
     | 'serviceSelectionDashboard'
     | 'tripDetailsInput'
     | 'schedulePlanning'
@@ -24,26 +18,15 @@ export type Screen =
     | 'securePaymentProcessing'
     | 'serviceRating'
     | 'serviceHistory'
-    | 'tripHistoryDetail';
+    | 'tripHistoryDetail'
+    | 'accountProfile'
+    | 'savedPassengers'
+    | 'emergencyContacts';
 
-export interface Driver {
-    name: string;
-    experience: string;
-    bio: string;
-    licensePlate: string;
-}
-
-export interface Shuttle {
-    id: number;
-    name: string;
-    location: string;
-    distance: string;
-    price: number;
-    rating: number;
-    reviews: number;
-    image: string;
-    images: string[];
-    driver: Driver;
+export enum Role {
+    Customer = 'Customer',
+    Driver = 'Driver',
+    Admin = 'Admin',
 }
 
 export interface TripHistory {
@@ -55,4 +38,26 @@ export interface TripHistory {
     vehicle: string;
     price: number;
     status: 'Completed' | 'Canceled';
+}
+
+export interface Passenger {
+    id: number;
+    name: string;
+    ageCategory: 'Adult' | 'Child' | 'Infant';
+    specialNeeds: string[];
+    luggage: number;
+    photo?: string;
+}
+
+export interface EmergencyContact {
+    id: number;
+    name: string;
+    relationship: string;
+    phone: string;
+    notifications: {
+        tripStart: boolean;
+        emergency: boolean;
+        tripComplete: boolean;
+        delayedArrival: boolean;
+    };
 }

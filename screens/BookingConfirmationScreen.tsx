@@ -44,7 +44,7 @@ const BookingConfirmationScreen: React.FC<BookingConfirmationScreenProps> = ({ o
                 </div>
 
                 <button
-                    onClick={() => onNavigate('realTimeTripTracking')}
+                    onClick={() => onNavigate('realTimeTripTracking', shuttle.id)}
                     className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0A2A66] hover:bg-[#082250] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#082250] transition-all duration-300 transform hover:scale-105"
                 >
                     Track Your Ride

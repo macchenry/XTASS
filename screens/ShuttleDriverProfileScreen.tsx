@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 // Fix: Remove .ts and .tsx extensions from import paths.
 import { Screen } from '../types';
 import { XtassLogo } from '../components/XtassLogo';
+// Fix: Remove .ts and .tsx extensions from import paths.
 import { ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon, StarIcon, CheckBadgeIcon, UserCircleIcon, MapPinIcon, UsersIcon, FuelIcon, LanguagesIcon, PhoneIcon, WhatsAppIcon } from '../components/Icons';
 import { shuttleData } from '../data/shuttleData';
 
@@ -116,7 +117,7 @@ const ShuttleDriverProfileScreen: React.FC<ShuttleDriverProfileScreenProps> = ({
                     <a href="tel:+233559369950" className="p-3 border rounded-lg hover:bg-gray-100"><PhoneIcon className="w-6 h-6 text-gray-600"/></a>
                     <a href="https://wa.me/233559369950" target="_blank" rel="noopener noreferrer" className="p-3 border rounded-lg hover:bg-gray-100"><WhatsAppIcon className="w-6 h-6 text-green-500"/></a>
                 </div>
-                <button onClick={() => onNavigate('bookingConfirmation')} className="flex-grow bg-[#0A2A66] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#082250] transition-colors">
+                <button onClick={() => onNavigate('bookingConfirmation', shuttle.id)} className="flex-grow bg-[#0A2A66] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#082250] transition-colors">
                     Book This Shuttle
                 </button>
             </footer>

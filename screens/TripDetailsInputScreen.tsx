@@ -1,6 +1,7 @@
 
 // Fix: Implemented the TripDetailsInputScreen component.
 import React, { useState } from 'react';
+// Fix: Remove .ts and .tsx extensions from import paths to resolve module not found errors.
 import { Screen } from '../types';
 import { ArrowLeftIcon, UsersIcon, MapPinIcon, ArrowRightIcon } from '../components/Icons';
 
