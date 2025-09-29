@@ -1,7 +1,6 @@
-
 import React from 'react';
 
-export const XtassLogo: React.FC<{ className?: string }> = ({ className }) => (
+export const XtassLogo: React.FC<{ className?: string; color?: string }> = ({ className, color = 'white' }) => (
     <svg 
         viewBox="0 0 200 50" 
         className={className} 
@@ -17,7 +16,7 @@ export const XtassLogo: React.FC<{ className?: string }> = ({ className }) => (
             fontFamily="Poppins, sans-serif" 
             fontSize="40" 
             fontWeight="700" 
-            fill="white"
+            fill={color}
             x="0"
             y="35"
         >

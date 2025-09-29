@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
-import { Role, Screen } from '../types';
-import { CustomerIcon, DriverIcon, AdminIcon } from '../components/Icons';
+// Fix: Add .ts and .tsx extensions to import paths.
+import { Role, Screen } from '../types.ts';
+import { CustomerIcon, DriverIcon, AdminIcon } from '../components/Icons.tsx';
 
 interface RoleButtonProps {
     role: Role;

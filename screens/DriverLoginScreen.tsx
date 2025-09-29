@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
-import { Screen } from '../types';
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon, PhoneIcon, WhatsAppIcon, GoogleIcon } from '../components/Icons';
+// Fix: Add .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon, PhoneIcon, WhatsAppIcon, GoogleIcon } from '../components/Icons.tsx';
 
 interface DriverLoginScreenProps {
     onNavigate: (screen: Screen) => void;

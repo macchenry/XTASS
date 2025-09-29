@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
-import { Screen } from '../types';
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons';
+// Fix: Add .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons.tsx';
 
 interface AdminLoginScreenProps {
     onNavigate: (screen: Screen) => void;
