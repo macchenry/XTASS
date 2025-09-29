@@ -1,4 +1,5 @@
 
+
 // Fix: Implemented the BookingConfirmationScreen component.
 import React from 'react';
 // Fix: Remove .ts and .tsx extensions from import paths.

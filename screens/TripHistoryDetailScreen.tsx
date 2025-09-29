@@ -1,7 +1,9 @@
 
 import React from 'react';
+// Fix: Removed .ts extension from import path.
 import { Screen } from '../types';
 import { historyData } from '../data/historyData';
+// Fix: Removed .tsx extension from import path.
 import { ArrowLeftIcon, MapPinIcon, UserCircleIcon, CreditCardIcon } from '../components/Icons';
 
 interface TripHistoryDetailScreenProps {

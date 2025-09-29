@@ -1,5 +1,7 @@
 import React from 'react';
+// Fix: Removed .ts extension from import path.
 import { Screen } from '../types';
+// Fix: Removed .tsx extension from import path.
 import { ArrowLeftIcon, ChevronRightIcon, UserCircleIcon, ClockIcon, UsersIcon, ShieldCheckIcon, PowerIcon } from '../components/Icons';
 
 interface AccountProfileScreenProps {

@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 // Fix: Remove .ts and .tsx extensions to import paths.
 import { Screen } from '../types';

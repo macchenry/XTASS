@@ -1,4 +1,5 @@
 
+
 // Fix: Implemented the OtpVerificationScreen component.
 import React, { useState, useRef, useEffect } from 'react';
 // Fix: Remove .ts and .tsx extensions to import paths.

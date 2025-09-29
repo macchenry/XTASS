@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 // Fix: Remove .ts and .tsx extensions from import paths.
 import { Screen } from '../types';

@@ -1,7 +1,9 @@
 // Fix: Implement the SavedPassengersScreen component.
 import React, { useState } from 'react';
+// Fix: Removed .ts extension from import path.
 import { Screen, Passenger } from '../types';
 import { passengerData as initialPassengerData } from '../data/passengerData';
+// Fix: Removed .tsx extension from import path.
 import { ArrowLeftIcon, PlusIcon, UserCircleIcon, EllipsisVerticalIcon, PencilIcon, TrashIcon } from '../components/Icons';
 
 interface SavedPassengersScreenProps {

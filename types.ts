@@ -5,8 +5,8 @@ export type Screen =
     | 'driverLogin'
     | 'adminLogin'
     | 'customerRegistration'
-    | 'otpVerification'
     | 'passwordRecovery'
+    | 'otpVerification'
     | 'serviceSelectionDashboard'
     | 'tripDetailsInput'
     | 'schedulePlanning'
@@ -17,11 +17,20 @@ export type Screen =
     | 'paymentSelection'
     | 'securePaymentProcessing'
     | 'serviceRating'
+    | 'accountProfile'
     | 'serviceHistory'
     | 'tripHistoryDetail'
-    | 'accountProfile'
     | 'savedPassengers'
-    | 'emergencyContacts';
+    | 'emergencyContacts'
+    | 'driverDashboard'
+    | 'driverRegistration'
+    | 'driverPasswordRecovery'
+    | 'driverDocumentUpload'
+    | 'driverApplicationReview'
+    | 'tripRequest'
+    | 'tripManagement'
+    | 'tripCompletion'
+    | 'driverEarnings';
 
 export enum Role {
     Customer = 'Customer',

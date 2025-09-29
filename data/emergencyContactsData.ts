@@ -1,4 +1,5 @@
 
+// Fix: Removed .ts extension from import path.
 import { EmergencyContact } from '../types';
 
 export const emergencyContactsData: EmergencyContact[] = [

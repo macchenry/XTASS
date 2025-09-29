@@ -1,15 +1,15 @@
-
-
+// Fix: Implement the DriverPasswordRecoveryScreen component.
 import React, { useState } from 'react';
-// Fix: Remove .ts and .tsx extensions to import paths.
+// Fix: Removed .ts extension from import path.
 import { Screen } from '../types';
+// Fix: Removed .tsx extension from import path.
 import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons';
 
-interface PasswordRecoveryScreenProps {
-    onNavigate: (screen: Screen, shuttleId?: number) => void;
+interface DriverPasswordRecoveryScreenProps {
+    onNavigate: (screen: Screen) => void;
 }
 
-const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavigate }) => {
+const DriverPasswordRecoveryScreen: React.FC<DriverPasswordRecoveryScreenProps> = ({ onNavigate }) => {
     const [emailOrPhone, setEmailOrPhone] = useState('');
     const [otp, setOtp] = useState(Array(6).fill(''));
     const [newPassword, setNewPassword] = useState('');
@@ -20,8 +20,7 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
 
     const handleSendCode = (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you would typically call an API to send the reset code
-        console.log('Sending reset code to:', emailOrPhone);
+        console.log('Sending reset code to driver:', emailOrPhone);
         setIsCodeSent(true);
     };
 
@@ -31,10 +30,9 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
             alert("Passwords do not match!");
             return;
         }
-        // Here you would call an API to verify OTP and reset password
-        console.log('Resetting password with OTP:', otp.join(''));
+        console.log('Resetting driver password with OTP:', otp.join(''));
         alert('Password has been reset successfully!');
-        onNavigate('customerLogin');
+        onNavigate('driverLogin');
     };
     
     const handleOtpChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
@@ -44,7 +42,6 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
             newOtp[index] = value;
             setOtp(newOtp);
 
-            // Focus next input
             if (value !== "" && index < 5) {
                 const nextInput = e.target.nextElementSibling as HTMLInputElement;
                 if (nextInput) {
@@ -58,9 +55,9 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
         <div className="min-h-screen bg-[#0a2a66] font-sans flex flex-col items-center justify-center p-4 relative">
             <header className="absolute top-0 left-0 w-full flex items-center p-4 sm:p-6 z-20">
                 <button
-                    onClick={() => onNavigate('customerLogin')}
+                    onClick={() => onNavigate('driverLogin')}
                     className="flex items-center space-x-2 text-white bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300"
-                    aria-label="Go back to customer login"
+                    aria-label="Go back to driver login"
                 >
                     <ArrowLeftIcon className="w-5 h-5" />
                 </button>
@@ -68,9 +65,9 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
 
             <main className="w-full max-w-sm bg-white rounded-2xl shadow-2xl p-8 space-y-6 z-10">
                 <div className="text-center">
-                    <h1 className="text-3xl font-poppins font-bold text-gray-900">Password Recovery</h1>
+                    <h1 className="text-3xl font-poppins font-bold text-gray-900">Driver Password Recovery</h1>
                     <p className="text-gray-600 mt-1">
-                        {isCodeSent ? 'Enter the code and your new password.' : 'Enter your details to reset your password.'}
+                        {isCodeSent ? 'Enter code and new password.' : 'Enter your details to reset.'}
                     </p>
                 </div>
 
@@ -144,7 +141,7 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
                 )}
                  <p className="text-center text-sm text-gray-600">
                     Remember your password?{' '}
-                    <button type="button" onClick={() => onNavigate('customerLogin')} className="font-medium text-[#0a2a66] hover:underline">
+                    <button type="button" onClick={() => onNavigate('driverLogin')} className="font-medium text-[#0a2a66] hover:underline">
                         Back to Login
                     </button>
                 </p>
@@ -153,4 +150,4 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
     );
 };
 
-export default PasswordRecoveryScreen;
+export default DriverPasswordRecoveryScreen;
