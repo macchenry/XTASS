@@ -1,0 +1,5 @@
+{
+  "name": "XTASS - Smart Airport Transportation",
+  "description": "A comprehensive web application for XTASS, Ghana's premium airport transportation service. This platform features intelligent shuttle-passenger matching, real-time tracking, and multi-user role management for customers, drivers, and administrators.",
+  "requestFramePermissions": []
+}
