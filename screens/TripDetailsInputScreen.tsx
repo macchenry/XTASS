@@ -1,10 +1,11 @@
+
 // Fix: Implemented the TripDetailsInputScreen component.
 import React, { useState } from 'react';
-import { Screen } from '../types.ts';
-import { ArrowLeftIcon, UsersIcon, MapPinIcon, ArrowRightIcon } from '../components/Icons.tsx';
+import { Screen } from '../types';
+import { ArrowLeftIcon, UsersIcon, MapPinIcon, ArrowRightIcon } from '../components/Icons';
 
 interface TripDetailsInputScreenProps {
-    onNavigate: (screen: Screen) => void;
+    onNavigate: (screen: Screen, shuttleId?: number) => void;
 }
 
 const TripDetailsInputScreen: React.FC<TripDetailsInputScreenProps> = ({ onNavigate }) => {

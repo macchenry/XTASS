@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-// Fix: Add .ts and .tsx extensions to import paths.
-import { Role, Screen } from '../types.ts';
-import { CustomerIcon, DriverIcon, AdminIcon } from '../components/Icons.tsx';
+// Fix: Remove .ts and .tsx extensions to import paths.
+import { Role, Screen } from '../types';
+import { CustomerIcon, DriverIcon, AdminIcon } from '../components/Icons';
 
 interface RoleButtonProps {
     role: Role;
@@ -32,7 +32,7 @@ const RoleButton: React.FC<RoleButtonProps> = ({ role, label, icon, selectedRole
 };
 
 interface WelcomeScreenProps {
-    onNavigate: (screen: Screen) => void;
+    onNavigate: (screen: Screen, shuttleId?: number) => void;
 }
 
 const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onNavigate }) => {

@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
-// Fix: Add .ts and .tsx extensions to import paths.
-import { Screen } from '../types.ts';
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons.tsx';
+// Fix: Remove .ts and .tsx extensions to import paths.
+import { Screen } from '../types';
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons';
 
 interface PasswordRecoveryScreenProps {
-    onNavigate: (screen: Screen) => void;
+    onNavigate: (screen: Screen, shuttleId?: number) => void;
 }
 
 const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavigate }) => {

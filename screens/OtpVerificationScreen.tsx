@@ -1,12 +1,12 @@
 
 // Fix: Implemented the OtpVerificationScreen component.
 import React, { useState, useRef, useEffect } from 'react';
-// Fix: Add .ts and .tsx extensions to import paths.
-import { Screen } from '../types.ts';
-import { ArrowLeftIcon } from '../components/Icons.tsx';
+// Fix: Remove .ts and .tsx extensions to import paths.
+import { Screen } from '../types';
+import { ArrowLeftIcon } from '../components/Icons';
 
 interface OtpVerificationScreenProps {
-    onNavigate: (screen: Screen) => void;
+    onNavigate: (screen: Screen, shuttleId?: number) => void;
 }
 
 const OtpVerificationScreen: React.FC<OtpVerificationScreenProps> = ({ onNavigate }) => {
