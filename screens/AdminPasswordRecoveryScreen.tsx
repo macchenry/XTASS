@@ -1,15 +1,14 @@
-
 import React, { useState } from 'react';
-// Fix: Added .ts and .tsx extensions to import paths.
-import { Screen } from '../types.ts';
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons.tsx';
+import { Screen } from '../types';
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons';
+import { XtassLogo } from '../components/XtassLogo';
 
-interface PasswordRecoveryScreenProps {
-    onNavigate: (screen: Screen, shuttleId?: number) => void;
+interface AdminPasswordRecoveryScreenProps {
+    onNavigate: (screen: Screen) => void;
 }
 
-const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavigate }) => {
-    const [emailOrPhone, setEmailOrPhone] = useState('');
+const AdminPasswordRecoveryScreen: React.FC<AdminPasswordRecoveryScreenProps> = ({ onNavigate }) => {
+    const [email, setEmail] = useState('');
     const [otp, setOtp] = useState(Array(6).fill(''));
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -19,8 +18,7 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
 
     const handleSendCode = (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you would typically call an API to send the reset code
-        console.log('Sending reset code to:', emailOrPhone);
+        console.log('Sending reset code to admin:', email);
         setIsCodeSent(true);
     };
 
@@ -30,10 +28,9 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
             alert("Passwords do not match!");
             return;
         }
-        // Here you would call an API to verify OTP and reset password
-        console.log('Resetting password with OTP:', otp.join(''));
+        console.log('Resetting admin password with OTP:', otp.join(''));
         alert('Password has been reset successfully!');
-        onNavigate('customerLogin');
+        onNavigate('adminLogin');
     };
     
     const handleOtpChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
@@ -43,7 +40,6 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
             newOtp[index] = value;
             setOtp(newOtp);
 
-            // Focus next input
             if (value !== "" && index < 5) {
                 const nextInput = e.target.nextElementSibling as HTMLInputElement;
                 if (nextInput) {
@@ -55,38 +51,39 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
 
     return (
         <div className="min-h-screen bg-[#0a2a66] font-sans flex flex-col items-center justify-center p-4 relative">
-            <header className="absolute top-0 left-0 w-full flex items-center p-4 sm:p-6 z-20">
-                <button
-                    onClick={() => onNavigate('customerLogin')}
+            <header className="absolute top-0 left-0 w-full flex items-center justify-between p-4 sm:p-6 z-20">
+                 <button
+                    onClick={() => onNavigate('adminLogin')}
                     className="flex items-center space-x-2 text-white bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300"
-                    aria-label="Go back to customer login"
+                    aria-label="Go back to admin login"
                 >
                     <ArrowLeftIcon className="w-5 h-5" />
                 </button>
+                <XtassLogo className="h-8" />
             </header>
 
             <main className="w-full max-w-sm bg-white rounded-2xl shadow-2xl p-8 space-y-6 z-10">
                 <div className="text-center">
-                    <h1 className="text-3xl font-poppins font-bold text-gray-900">Password Recovery</h1>
+                    <h1 className="text-3xl font-poppins font-bold text-gray-900">Admin Password Recovery</h1>
                     <p className="text-gray-600 mt-1">
-                        {isCodeSent ? 'Enter the code and your new password.' : 'Enter your details to reset your password.'}
+                        {isCodeSent ? 'Enter code and new password.' : 'Enter your email to reset.'}
                     </p>
                 </div>
 
                 {!isCodeSent ? (
                     <form onSubmit={handleSendCode} className="space-y-6">
                         <div>
-                            <label htmlFor="emailOrPhone" className="block text-sm font-medium text-gray-700 mb-1">
-                                Email or Phone
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                Email Address
                             </label>
                             <input
-                                id="emailOrPhone"
-                                name="emailOrPhone"
-                                type="text"
+                                id="email"
+                                name="email"
+                                type="email"
                                 required
-                                placeholder="e.g. +233 55... or name@mail.com"
-                                value={emailOrPhone}
-                                onChange={(e) => setEmailOrPhone(e.target.value)}
+                                placeholder="admin@xtass.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-500 focus:outline-none focus:ring-[#0a2a66] focus:border-[#0a2a66] sm:text-sm"
                             />
                         </div>
@@ -143,7 +140,7 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
                 )}
                  <p className="text-center text-sm text-gray-600">
                     Remember your password?{' '}
-                    <button type="button" onClick={() => onNavigate('customerLogin')} className="font-medium text-[#0a2a66] hover:underline">
+                    <button type="button" onClick={() => onNavigate('adminLogin')} className="font-medium text-[#0a2a66] hover:underline">
                         Back to Login
                     </button>
                 </p>
@@ -152,4 +149,4 @@ const PasswordRecoveryScreen: React.FC<PasswordRecoveryScreenProps> = ({ onNavig
     );
 };
 
-export default PasswordRecoveryScreen;
+export default AdminPasswordRecoveryScreen;

@@ -1,3 +1,8 @@
+export enum Role {
+    Customer = 'Customer',
+    Driver = 'Driver',
+    Admin = 'Admin',
+}
 
 export type Screen =
     | 'welcome'
@@ -6,6 +11,8 @@ export type Screen =
     | 'adminLogin'
     | 'customerRegistration'
     | 'passwordRecovery'
+    | 'driverPasswordRecovery'
+    | 'adminPasswordRecovery'
     | 'otpVerification'
     | 'serviceSelectionDashboard'
     | 'tripDetailsInput'
@@ -22,21 +29,18 @@ export type Screen =
     | 'tripHistoryDetail'
     | 'savedPassengers'
     | 'emergencyContacts'
-    | 'driverDashboard'
     | 'driverRegistration'
-    | 'driverPasswordRecovery'
     | 'driverDocumentUpload'
     | 'driverApplicationReview'
+    | 'driverDashboard'
     | 'tripRequest'
     | 'tripManagement'
     | 'tripCompletion'
-    | 'driverEarnings';
-
-export enum Role {
-    Customer = 'Customer',
-    Driver = 'Driver',
-    Admin = 'Admin',
-}
+    | 'driverEarnings'
+    | 'adminDashboard'
+    | 'adminDriverManagement'
+    | 'adminLiveOperations'
+    | 'adminSystemConfig';
 
 export interface TripHistory {
     id: number;

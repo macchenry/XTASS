@@ -1,10 +1,9 @@
 
-
 // Fix: Implemented the TripDetailsInputScreen component.
 import React, { useState } from 'react';
-// Fix: Remove .ts and .tsx extensions from import paths to resolve module not found errors.
-import { Screen } from '../types';
-import { ArrowLeftIcon, UsersIcon, MapPinIcon, ArrowRightIcon } from '../components/Icons';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, UsersIcon, MapPinIcon, ArrowRightIcon } from '../components/Icons.tsx';
 
 interface TripDetailsInputScreenProps {
     onNavigate: (screen: Screen, shuttleId?: number) => void;

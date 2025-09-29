@@ -1,9 +1,10 @@
 import React from 'react';
-// Fix: Removed .ts extension from import path.
-import { Screen } from '../types';
-import { XtassLogo } from '../components/XtassLogo';
-// Fix: Removed .tsx extension from import path.
-import { ClockIcon } from '../components/Icons';
+// Fix: Added .ts extension to import path.
+import { Screen } from '../types.ts';
+// Fix: Added .tsx extension to import path.
+import { XtassLogo } from '../components/XtassLogo.tsx';
+// Fix: Added .tsx extension to import path.
+import { ClockIcon } from '../components/Icons.tsx';
 
 interface DriverApplicationReviewScreenProps {
     onNavigate: (screen: Screen) => void;

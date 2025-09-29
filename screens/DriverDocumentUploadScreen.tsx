@@ -1,8 +1,8 @@
 import React from 'react';
-// Fix: Removed .ts extension from import path.
-import { Screen } from '../types';
-// Fix: Removed .tsx extension from import path.
-import { ArrowLeftIcon, UploadIcon } from '../components/Icons';
+// Fix: Added .ts extension to import path.
+import { Screen } from '../types.ts';
+// Fix: Added .tsx extension to import path.
+import { ArrowLeftIcon, UploadIcon } from '../components/Icons.tsx';
 
 interface DriverDocumentUploadScreenProps {
     onNavigate: (screen: Screen) => void;

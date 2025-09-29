@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-// Fix: Removed .ts extension from import path.
-import { Screen } from '../types';
-// Fix: Removed .tsx extension from import path.
-import { ClockIcon, PowerIcon, StarIcon, UserCircleIcon, ChevronRightIcon } from '../components/Icons';
-import { XtassLogo } from '../components/XtassLogo';
+// Fix: Added .ts extension to import path.
+import { Screen } from '../types.ts';
+// Fix: Added .tsx extension to import paths.
+import { ClockIcon, PowerIcon, StarIcon, UserCircleIcon, ChevronRightIcon } from '../components/Icons.tsx';
+import { XtassLogo } from '../components/XtassLogo.tsx';
 
 interface DriverDashboardScreenProps {
     onNavigate: (screen: Screen) => void;

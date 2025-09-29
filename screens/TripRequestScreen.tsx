@@ -1,7 +1,9 @@
 // Fix: Added full content for TripRequestScreen.tsx
 import React, { useState, useEffect } from 'react';
-import { Screen } from '../types';
-import { MapPinIcon, StarIcon, UserCircleIcon, XCircleIcon, CheckCircleIcon } from '../components/Icons';
+// Fix: Added .ts extension to import path.
+import { Screen } from '../types.ts';
+// Fix: Added .tsx extension to import path.
+import { MapPinIcon, StarIcon, UserCircleIcon, XCircleIcon, CheckCircleIcon } from '../components/Icons.tsx';
 
 interface TripRequestScreenProps {
     onNavigate: (screen: Screen) => void;

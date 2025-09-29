@@ -1,6 +1,6 @@
 
-// Fix: Removed .ts extension from import path.
-import { EmergencyContact } from '../types';
+// Fix: Added .ts extension to import path.
+import { EmergencyContact } from '../types.ts';
 
 export const emergencyContactsData: EmergencyContact[] = [
     {

@@ -1,8 +1,9 @@
+
 import React from 'react';
-// Fix: Remove .ts and .tsx extensions from import paths to resolve module not found errors.
-import { Screen } from '../types';
-import { XtassLogo } from '../components/XtassLogo';
-import { ArrowRightIcon, CalendarIcon, UserCircleIcon, ClockIcon, ChevronRightIcon } from '../components/Icons';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { XtassLogo } from '../components/XtassLogo.tsx';
+import { ArrowLeftIcon, ArrowRightIcon, CalendarIcon, UserCircleIcon, ClockIcon, ChevronRightIcon } from '../components/Icons.tsx';
 
 interface ServiceSelectionDashboardProps {
     onNavigate: (screen: Screen, id?: number) => void;
@@ -11,9 +12,23 @@ interface ServiceSelectionDashboardProps {
 const ServiceSelectionDashboard: React.FC<ServiceSelectionDashboardProps> = ({ onNavigate }) => {
     return (
         <div className="min-h-screen bg-gray-50 font-sans">
-            <header className="bg-[#0A2A66] p-4 flex justify-between items-center text-white sticky top-0 z-20 shadow-lg">
-                <XtassLogo className="h-8" />
-                <button onClick={() => onNavigate('accountProfile')} aria-label="Account Profile">
+            <header className="relative bg-[#0A2A66] p-4 flex justify-between items-center text-white sticky top-0 z-20 shadow-lg">
+                {/* Back Button */}
+                <button
+                    onClick={() => onNavigate('customerLogin')}
+                    className="p-2 rounded-full hover:bg-white/20 transition-colors"
+                    aria-label="Go back to login"
+                >
+                    <ArrowLeftIcon className="w-6 h-6" />
+                </button>
+
+                {/* Centered Logo */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <XtassLogo className="h-8" />
+                </div>
+
+                {/* Profile Button */}
+                <button onClick={() => onNavigate('accountProfile')} aria-label="Account Profile" className="p-1 rounded-full hover:bg-white/20 transition-colors">
                     <UserCircleIcon className="w-8 h-8" />
                 </button>
             </header>
@@ -49,7 +64,7 @@ const ServiceSelectionDashboard: React.FC<ServiceSelectionDashboardProps> = ({ o
                         <HistoryItem
                             pickup="Kotoka Int. Airport (T1)"
                             destination="Accra Mall"
-                            date="Oct 25, 203"
+                            date="Oct 25, 2023"
                             onClick={() => onNavigate('tripHistoryDetail', 1)}
                         />
                         <HistoryItem

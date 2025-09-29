@@ -1,9 +1,9 @@
 // Fix: Implement the DriverLoginScreen component.
 import React, { useState } from 'react';
-// Fix: Remove .ts and .tsx extensions from import paths.
-import { Screen } from '../types';
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons';
-import { XtassLogo } from '../components/XtassLogo';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons.tsx';
+import { XtassLogo } from '../components/XtassLogo.tsx';
 
 interface DriverLoginScreenProps {
     onNavigate: (screen: Screen) => void;

@@ -1,9 +1,6 @@
-// Fix: Implement the DriverPasswordRecoveryScreen component.
 import React, { useState } from 'react';
-// Fix: Removed .ts extension from import path.
-import { Screen } from '../types';
-// Fix: Removed .tsx extension from import path.
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons';
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons.tsx';
 
 interface DriverPasswordRecoveryScreenProps {
     onNavigate: (screen: Screen) => void;

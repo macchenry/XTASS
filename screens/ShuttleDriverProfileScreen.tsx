@@ -1,12 +1,10 @@
 
-
 import React, { useState } from 'react';
-// Fix: Remove .ts and .tsx extensions from import paths.
-import { Screen } from '../types';
-import { XtassLogo } from '../components/XtassLogo';
-// Fix: Remove .ts and .tsx extensions from import paths.
-import { ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon, StarIcon, CheckBadgeIcon, UserCircleIcon, MapPinIcon, UsersIcon, FuelIcon, LanguagesIcon, PhoneIcon, WhatsAppIcon } from '../components/Icons';
-import { shuttleData } from '../data/shuttleData';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { XtassLogo } from '../components/XtassLogo.tsx';
+import { ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon, StarIcon, CheckBadgeIcon, UserCircleIcon, MapPinIcon, UsersIcon, FuelIcon, LanguagesIcon, PhoneIcon, WhatsAppIcon } from '../components/Icons.tsx';
+import { shuttleData } from '../data/shuttleData.ts';
 
 interface ShuttleDriverProfileScreenProps {
     onNavigate: (screen: Screen, shuttleId?: number) => void;

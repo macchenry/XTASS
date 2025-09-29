@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
-// Fix: Removed .ts extension from import path.
-import { Screen } from '../types';
-// Fix: Removed .tsx extension from import path.
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon, UploadIcon } from '../components/Icons';
-import { XtassLogo } from '../components/XtassLogo';
+// Fix: Added .ts extension to import path.
+import { Screen } from '../types.ts';
+// Fix: Added .tsx extension to import paths.
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon, UploadIcon } from '../components/Icons.tsx';
+import { XtassLogo } from '../components/XtassLogo.tsx';
 
 interface DriverRegistrationScreenProps {
     onNavigate: (screen: Screen) => void;
 }
 
 const DriverRegistrationScreen: React.FC<DriverRegistrationScreenProps> = ({ onNavigate }) => {
+    // Fix: Add state for password fields and their visibility
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        // Fix: Add password confirmation logic
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
         onNavigate('driverDocumentUpload');
     };
 
@@ -68,47 +77,44 @@ const DriverRegistrationScreen: React.FC<DriverRegistrationScreenProps> = ({ onN
                         </div>
                          <div className="relative">
                             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                            <input id="password" type={showPassword ? 'text' : 'password'} required className="block w-full px-3 py-2 border border-gray-300 rounded-md sm:text-sm" />
-                            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute inset-y-0 right-0 top-6 pr-3 flex items-center">
+                            <input id="password" type={showPassword ? 'text' : 'password'} required className="block w-full px-3 py-2 border border-gray-300 rounded-md sm:text-sm" value={password} onChange={e => setPassword(e.target.value)} />
+                             <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute inset-y-0 right-0 top-6 pr-3 flex items-center text-sm">
                                 {showPassword ? <EyeOffIcon className="h-5 w-5 text-gray-500" /> : <EyeIcon className="h-5 w-5 text-gray-500" />}
                             </button>
                         </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Profile Photo</label>
-                             <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                                <div className="space-y-1 text-center">
-                                    <UploadIcon className="mx-auto h-12 w-12 text-gray-400" />
-                                    <div className="flex text-sm text-gray-600">
-                                        <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-[#0A2A66] hover:text-[#082250] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#0A2A66]">
-                                            <span>Upload a file</span>
-                                            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
-                                        </label>
-                                        <p className="pl-1">or drag and drop</p>
-                                    </div>
-                                    <p className="text-xs text-gray-500">PNG, JPG up to 10MB</p>
-                                </div>
-                            </div>
+                        <div className="relative">
+                            <label htmlFor="confirm-password-driver" className="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                            <input id="confirm-password-driver" type={showConfirmPassword ? 'text' : 'password'} required className="block w-full px-3 py-2 border border-gray-300 rounded-md sm:text-sm" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
+                             <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute inset-y-0 right-0 top-6 pr-3 flex items-center text-sm">
+                                {showConfirmPassword ? <EyeOffIcon className="h-5 w-5 text-gray-500" /> : <EyeIcon className="h-5 w-5 text-gray-500" />}
+                            </button>
                         </div>
                     </fieldset>
 
-                    {/* Professional Details */}
-                     <fieldset className="space-y-4">
-                        <legend className="text-lg font-semibold font-poppins text-gray-800 border-b pb-2">Professional Details</legend>
-                        <div>
-                            <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">Years of Driving Experience</label>
-                            <input id="experience" type="number" required min="1" className="block w-full px-3 py-2 border border-gray-300 rounded-md sm:text-sm" />
-                        </div>
+                     {/* Vehicle Information */}
+                    <fieldset className="space-y-4">
+                         <legend className="text-lg font-semibold font-poppins text-gray-800 border-b pb-2">Vehicle Information</legend>
                          <div>
-                            <label htmlFor="languages" className="block text-sm font-medium text-gray-700 mb-1">Languages Spoken</label>
-                            <input id="languages" type="text" required placeholder="e.g. English, Twi, Ga" className="block w-full px-3 py-2 border border-gray-300 rounded-md sm:text-sm" />
+                            <label htmlFor="vehicleType" className="block text-sm font-medium text-gray-700 mb-1">Vehicle Type</label>
+                            <select id="vehicleType" required className="block w-full px-3 py-2 border bg-white border-gray-300 rounded-md sm:text-sm">
+                                <option>Toyota Hiace</option>
+                                <option>Mercedes-Benz Sprinter</option>
+                                <option>Ford Transit</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label htmlFor="licensePlate" className="block text-sm font-medium text-gray-700 mb-1">License Plate Number</label>
+                            <input id="licensePlate" type="text" required placeholder="e.g. GW 1234-20" className="block w-full px-3 py-2 border border-gray-300 rounded-md sm:text-sm" />
                         </div>
                     </fieldset>
-                    
+
                     <button
                         type="submit"
-                        className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0A2A66] hover:bg-[#082250] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#082250]"
+                        className="w-full flex items-center justify-center gap-x-2 py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-[#0A2A66] to-orange-500 hover:from-blue-800 hover:to-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all duration-300"
                     >
-                        Continue to Documents
+                        <span>Next: Upload Documents</span>
+                        <UploadIcon className="w-5 h-5" />
                     </button>
                 </form>
             </main>
@@ -116,4 +122,5 @@ const DriverRegistrationScreen: React.FC<DriverRegistrationScreenProps> = ({ onN
     );
 };
 
+// Fix: Add default export to resolve module import error.
 export default DriverRegistrationScreen;

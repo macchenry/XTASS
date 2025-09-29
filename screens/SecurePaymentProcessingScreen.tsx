@@ -1,10 +1,10 @@
 // Fix: Implement the SecurePaymentProcessingScreen component.
 import React, { useState, useEffect } from 'react';
-// Fix: Remove .ts and .tsx extensions from import paths.
-import { Screen } from '../types';
-import { ShieldCheckIcon, CheckCircleIcon, ArrowLeftIcon } from '../components/Icons';
-import { XtassLogo } from '../components/XtassLogo';
-import { shuttleData } from '../data/shuttleData';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ShieldCheckIcon, CheckCircleIcon, ArrowLeftIcon } from '../components/Icons.tsx';
+import { XtassLogo } from '../components/XtassLogo.tsx';
+import { shuttleData } from '../data/shuttleData.ts';
 
 interface SecurePaymentProcessingScreenProps {
     onNavigate: (screen: Screen, shuttleId?: number) => void;

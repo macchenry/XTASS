@@ -1,6 +1,6 @@
 // Fix: Provide mock data for passenger profiles.
-// Fix: Removed .ts extension from import path.
-import { Passenger } from '../types';
+// Fix: Added .ts extension to import path.
+import { Passenger } from '../types.ts';
 
 export const passengerData: Passenger[] = [
     {

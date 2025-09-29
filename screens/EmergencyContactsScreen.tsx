@@ -1,10 +1,9 @@
 
 import React, { useState } from 'react';
-// Fix: Removed .ts extension from import path.
-import { Screen, EmergencyContact } from '../types';
-import { emergencyContactsData as initialContacts } from '../data/emergencyContactsData';
-// Fix: Removed .tsx extension from import path.
-import { ArrowLeftIcon, UserPlusIcon, EllipsisVerticalIcon, PencilIcon, TrashIcon, BellIcon } from '../components/Icons';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen, EmergencyContact } from '../types.ts';
+import { emergencyContactsData as initialContacts } from '../data/emergencyContactsData.ts';
+import { ArrowLeftIcon, UserPlusIcon, EllipsisVerticalIcon, PencilIcon, TrashIcon, BellIcon } from '../components/Icons.tsx';
 
 interface EmergencyContactsScreenProps {
     onNavigate: (screen: Screen) => void;

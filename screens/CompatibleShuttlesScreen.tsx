@@ -1,10 +1,9 @@
 
-
 import React from 'react';
-// Fix: Remove .ts and .tsx extensions from import paths.
-import { Screen } from '../types';
-import { ArrowLeftIcon, MapPinIcon, StarIcon } from '../components/Icons';
-import { shuttleData } from '../data/shuttleData';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, MapPinIcon, StarIcon } from '../components/Icons.tsx';
+import { shuttleData } from '../data/shuttleData.ts';
 
 interface CompatibleShuttlesScreenProps {
     onNavigate: (screen: Screen, shuttleId?: number) => void;

@@ -1,11 +1,10 @@
 
-
 // Fix: Implemented the CustomerLoginScreen component.
 import React, { useState } from 'react';
-// Fix: Remove .ts and .tsx extensions to import paths.
-import { Screen } from '../types';
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon, GoogleIcon } from '../components/Icons';
-import { XtassLogo } from '../components/XtassLogo';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon, GoogleIcon } from '../components/Icons.tsx';
+import { XtassLogo } from '../components/XtassLogo.tsx';
 
 interface CustomerLoginScreenProps {
     onNavigate: (screen: Screen, shuttleId?: number) => void;

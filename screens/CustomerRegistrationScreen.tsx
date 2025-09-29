@@ -1,9 +1,8 @@
 
-
 import React, { useState } from 'react';
-// Fix: Remove .ts and .tsx extensions to import paths.
-import { Screen } from '../types';
-import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, EyeIcon, EyeOffIcon } from '../components/Icons.tsx';
 
 interface CustomerRegistrationScreenProps {
     onNavigate: (screen: Screen, shuttleId?: number) => void;

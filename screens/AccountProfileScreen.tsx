@@ -1,8 +1,7 @@
 import React from 'react';
-// Fix: Removed .ts extension from import path.
-import { Screen } from '../types';
-// Fix: Removed .tsx extension from import path.
-import { ArrowLeftIcon, ChevronRightIcon, UserCircleIcon, ClockIcon, UsersIcon, ShieldCheckIcon, PowerIcon } from '../components/Icons';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, ChevronRightIcon, UserCircleIcon, ClockIcon, UsersIcon, ShieldCheckIcon, PowerIcon } from '../components/Icons.tsx';
 
 interface AccountProfileScreenProps {
     onNavigate: (screen: Screen) => void;

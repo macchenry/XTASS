@@ -1,12 +1,11 @@
 
-
 // Fix: Implemented the BookingConfirmationScreen component.
 import React from 'react';
-// Fix: Remove .ts and .tsx extensions from import paths.
-import { Screen } from '../types';
-import { ArrowLeftIcon, CheckCircleIcon } from '../components/Icons';
-import { XtassLogo } from '../components/XtassLogo';
-import { shuttleData } from '../data/shuttleData';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { ArrowLeftIcon, CheckCircleIcon } from '../components/Icons.tsx';
+import { XtassLogo } from '../components/XtassLogo.tsx';
+import { shuttleData } from '../data/shuttleData.ts';
 
 interface BookingConfirmationScreenProps {
     onNavigate: (screen: Screen, shuttleId?: number) => void;

@@ -1,10 +1,9 @@
 
-
 import React, { useState } from 'react';
-// Fix: Remove .ts and .tsx extensions from import paths.
-import { Screen } from '../types';
-import { UserCircleIcon, PhoneIcon, WhatsAppIcon, StarIcon } from '../components/Icons';
-import { shuttleData } from '../data/shuttleData';
+// Fix: Added .ts and .tsx extensions to import paths.
+import { Screen } from '../types.ts';
+import { UserCircleIcon, PhoneIcon, WhatsAppIcon, StarIcon } from '../components/Icons.tsx';
+import { shuttleData } from '../data/shuttleData.ts';
 
 interface RealTimeTripTrackingScreenProps {
     onNavigate: (screen: Screen, shuttleId?: number) => void;

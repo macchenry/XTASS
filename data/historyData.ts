@@ -1,7 +1,6 @@
 
-
-// Fix: Remove .ts extension from import path for TripHistory type.
-import { TripHistory } from '../types';
+// Fix: Added .ts extension to import path.
+import { TripHistory } from '../types.ts';
 
 export const historyData: TripHistory[] = [
     {
